@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: amazon-ecs-register-task-definition
+  description: Github action to (only) register Amazon ECS task definitions. fork of https://github.com/aws-actions/amazon-ecs-deploy-task-definition
+  annotations:
+    github.com/project-slug: Multiverse-io/amazon-ecs-register-task-definition
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - javascript
+    - github-actions
+  links:
+    - title: GitHub
+      url: https://github.com/Multiverse-io/amazon-ecs-register-task-definition
+spec:
+  type: library
+  owner: lobsters
+  lifecycle: production
