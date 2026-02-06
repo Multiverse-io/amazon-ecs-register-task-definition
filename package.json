@@ -33,5 +33,9 @@
     "@vercel/ncc": "^0.38.1",
     "eslint": "^8.54.0",
     "jest": "^29.7.0"
+  },
+  "resolutions": {
+    "js-yaml": "^4.1.1",
+    "cross-spawn": "^7.0.5"
   }
 }
