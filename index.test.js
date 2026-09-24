@@ -382,6 +382,19 @@ describe('Deploy to ECS', () => {
         expect(core.setOutput).toHaveBeenNthCalledWith(1, 'task-definition-arn', 'task:def:arn');
     });
 
+    test('registers a YAML task definition', async () => {
+        core.getInput = jest.fn().mockReturnValueOnce('task-definition.yaml');
+        fs.readFileSync.mockReturnValueOnce('family: task-def-family\ncontainerDefinitions:\n  - name: web\n    image: web:latest\n');
+
+        await run();
+
+        expect(core.setFailed).toHaveBeenCalledTimes(0);
+        expect(mockEcsRegisterTaskDef).toHaveBeenCalledWith({
+            family: 'task-def-family',
+            containerDefinitions: [{ name: 'web', image: 'web:latest' }]
+        });
+    });
+
     test('does not wait for a CodeDeploy deployment, parses JSON appspec file', async () => {
         core.getInput = jest
             .fn()
