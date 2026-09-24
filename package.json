@@ -42,7 +42,13 @@
       "js-yaml": "^4.1.1"
     },
     "cross-spawn": "^7.0.5",
-    "brace-expansion": "^1.1.12",
+    "brace-expansion": "^1.1.16",
     "@babel/helpers": "^7.26.10"
+  },
+  "resolutions": {
+    "@babel/core": "^7.29.6",
+    "brace-expansion": "^1.1.16",
+    "browserslist": "^4.28.7",
+    "picomatch": "^2.3.2"
   }
 }
