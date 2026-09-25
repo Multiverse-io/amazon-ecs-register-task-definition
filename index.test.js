@@ -395,6 +395,17 @@ describe('Deploy to ECS', () => {
         });
     });
 
+    test('rejects deeply nested YAML before registering a task definition', async () => {
+        core.getInput = jest.fn().mockReturnValueOnce('task-definition.yaml');
+        fs.readFileSync.mockReturnValueOnce('['.repeat(5000) + '1' + ']'.repeat(5000));
+
+        await run();
+
+        expect(mockEcsRegisterTaskDef).not.toHaveBeenCalled();
+        expect(core.setFailed).toHaveBeenCalled();
+        expect(core.debug).toHaveBeenCalledWith(expect.stringMatching(/^YAMLParseError:/));
+    });
+
     test('does not wait for a CodeDeploy deployment, parses JSON appspec file', async () => {
         core.getInput = jest
             .fn()
