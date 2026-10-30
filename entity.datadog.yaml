@@ -1,0 +1,18 @@
+# Datadog Software Catalog entity for this repository.
+# componentOf joins it to its estate's system, which datadog-tenant defines
+# from the estate registry. Do not define a system here.
+apiVersion: v3
+kind: repository
+metadata:
+  name: amazon-ecs-register-task-definition
+  displayName: Amazon ECS register task definition
+  description: Register-only fork of the aws-actions ECS deploy task definition action.
+  owner: async-learning
+  links:
+    - name: Source code
+      type: repo
+      provider: Github
+      url: https://github.com/Multiverse-io/amazon-ecs-register-task-definition
+spec:
+  componentOf:
+    - system:learning-content
